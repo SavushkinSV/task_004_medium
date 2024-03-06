@@ -2,19 +2,15 @@ CFLAGS=-Werror -Wextra -Wall
 CC=gcc
 FSAN=-fsanitize=leak -fsanitize=address -fsanitize=undefined -fsanitize=unreachable -fno-sanitize-recover -fstack-protector
 
-all: find_duplicates
+all: find_duplicates cryptography
 
 rebuild: clean
 
-find_duplicates: main.c duplicate.c
-	$(CC) $(CFLAGS) main.c duplicate.c -o ../bin/find_duplicates
+find_duplicates: main_duplicate.c duplicate.c
+	$(CC) $(CFLAGS) main_duplicate.c duplicate.c -o ../bin/find_duplicates
 
-
-build_fsanitize:
-	$(CC) $(CFLAGS) $(FSAN) main.c duplicate.c -o ../bin/find_duplicates
-
-cryptography:
-	$(CC) $(CFLAGS) $(FSAN) main.c duplicate.c -o ../bin/cryptography
+cryptography: main_crypt.c crypt.c
+	$(CC) $(CFLAGS) main_crypt.c crypt.c -o ../bin/cryptography
 
 ascii_sort:
 	$(CC) $(CFLAGS) $(FSAN) main.c duplicate.c -o ../bin/ascii_sort
