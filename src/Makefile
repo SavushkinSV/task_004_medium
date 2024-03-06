@@ -13,6 +13,12 @@ find_duplicates: main.c duplicate.c
 build_fsanitize:
 	$(CC) $(CFLAGS) $(FSAN) main.c duplicate.c -o ../bin/find_duplicates
 
+cryptography:
+	$(CC) $(CFLAGS) $(FSAN) main.c duplicate.c -o ../bin/cryptography
+
+ascii_sort:
+	$(CC) $(CFLAGS) $(FSAN) main.c duplicate.c -o ../bin/ascii_sort
+
 clean:
 	rm -rf *.o *.out
 
