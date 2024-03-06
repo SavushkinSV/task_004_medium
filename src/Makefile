@@ -13,7 +13,7 @@ cryptography: main_crypt.c crypt.c
 	$(CC) $(CFLAGS) main_crypt.c crypt.c -o ../bin/cryptography
 
 ascii_sort:
-	$(CC) $(CFLAGS) $(FSAN) main.c duplicate.c -o ../bin/ascii_sort
+	$(CC) $(CFLAGS) $(FSAN) main_duplicate.c duplicate.c -o ../bin/ascii_sort
 
 clean:
 	rm -rf *.o *.out
